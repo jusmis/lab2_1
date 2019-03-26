@@ -25,6 +25,9 @@ public class BinarySearch {
         if (seq.length == 0) {
             throw new IllegalArgumentException();
         }
+        if (checkForDuplicates(seq)) {
+            throw new IllegalArgumentException();
+        }
         int start = 0;
         int end = seq.length - 1;
         int center;
@@ -45,6 +48,17 @@ public class BinarySearch {
 
         }
         return result;
+    }
+
+    private static boolean checkForDuplicates(int[] seq) {
+        for (int i = 0; i < seq.length; i++) {
+            for (int j = 0; j < seq.length; j++) {
+                if ( i != j && seq[j] == seq[i]) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }
