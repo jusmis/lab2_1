@@ -1,7 +1,9 @@
 import edu.iis.mto.bsearch.BinarySearch;
 import edu.iis.mto.bsearch.SearchResult;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class BinarySearchTests {
 
@@ -12,8 +14,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = 0;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertTrue(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test
@@ -23,8 +25,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = -1;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertFalse(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(false));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test
@@ -34,8 +36,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = 0;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertTrue(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test
@@ -45,8 +47,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = seq.length - 1;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertTrue(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test
@@ -56,8 +58,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = seq.length / 2;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertTrue(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test
@@ -67,8 +69,8 @@ public class BinarySearchTests {
         final int EXPECTED_VALUE = -1;
 
         SearchResult result = BinarySearch.search(value, seq);
-        Assert.assertFalse(result.isFound());
-        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
+        assertThat(result.isFound(), is(false));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
     @Test(expected = IllegalArgumentException.class)
