@@ -28,6 +28,9 @@ public class BinarySearch {
         if (checkForDuplicates(seq)) {
             throw new IllegalArgumentException();
         }
+        if (isNotSorted(seq)) {
+            throw new IllegalArgumentException();
+        }
         int start = 0;
         int end = seq.length - 1;
         int center;
@@ -56,6 +59,15 @@ public class BinarySearch {
                 if ( i != j && seq[j] == seq[i]) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    private static boolean isNotSorted(int[] seq) {
+        for (int i = 0; i < seq.length - 1; i++){
+            if (seq[i] > seq[i+1]){
+                return true;
             }
         }
         return false;
