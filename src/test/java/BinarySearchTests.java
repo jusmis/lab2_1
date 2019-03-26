@@ -14,4 +14,13 @@ public class BinarySearchTests {
         Assert.assertTrue(result.isFound());
     }
 
+    @Test
+    public void valueIsNotInOneElementSequence() {
+        int seq[] = {1};
+        int value = 2;
+
+        SearchResult result = BinarySearch.search(value, seq);
+        Assert.assertFalse(result.isFound());
+    }
+
 }
