@@ -87,4 +87,12 @@ public class BinarySearchTests {
         SearchResult result = BinarySearch.search(value, seq);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void isExceptionThrownWhenSequenceIsNotSorted() {
+        int[] seq = {3, 2};
+        int value = 1;
+
+        SearchResult result = BinarySearch.search(value, seq);
+    }
+
 }
