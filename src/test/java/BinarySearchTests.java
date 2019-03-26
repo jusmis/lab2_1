@@ -84,6 +84,17 @@ public class BinarySearchTests {
         assertThat(result.getPosition(), is(EXPECTED_VALUE));
     }
 
+    @Test
+    public void valueIsRightFromMiddleInMultiElementSequenceWithEvenNumberOfElements() {
+        int seq[] = {1, 2, 3, 4};
+        int value = 3;
+        final int EXPECTED_VALUE = seq.length / 2;
+
+        SearchResult result = BinarySearch.search(value, seq);
+        assertThat(result.isFound(), is(true));
+        assertThat(result.getPosition(), is(EXPECTED_VALUE));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void isExceptionThrownWhenSequenceIsEmpty() {
         int[] seq = {};
