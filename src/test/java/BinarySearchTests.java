@@ -9,18 +9,22 @@ public class BinarySearchTests {
     public void valueIsInOneElementSequence() {
         int seq[] = {1};
         int value = 1;
+        final int EXPECTED_VALUE = 0;
 
         SearchResult result = BinarySearch.search(value, seq);
         Assert.assertTrue(result.isFound());
+        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
     }
 
     @Test
     public void valueIsNotInOneElementSequence() {
         int seq[] = {1};
         int value = 2;
+        final int EXPECTED_VALUE = -1;
 
         SearchResult result = BinarySearch.search(value, seq);
         Assert.assertFalse(result.isFound());
+        Assert.assertEquals(EXPECTED_VALUE, result.getPosition());
     }
 
 }
